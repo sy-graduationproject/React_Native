@@ -1,2 +1,2 @@
-# Refrigerator_Management_App
-Refrigerator_Management_App
+# 졸업 프로젝트
+냉장고 관리 앱
