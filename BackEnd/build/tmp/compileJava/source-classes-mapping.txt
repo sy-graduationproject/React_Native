@@ -1,0 +1,4 @@
+com/rm/app/refrigerator_management_app/RefrigeratorManagementAppApplication.java
+ com.rm.app.refrigerator_management_app.RefrigeratorManagementAppApplication
+com/rm/app/refrigerator_management_app/web/HelloController.java
+ com.rm.app.refrigerator_management_app.web.HelloController
