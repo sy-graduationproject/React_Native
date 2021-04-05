@@ -1,4 +1,23 @@
-com/rm/app/refrigerator_management_app/RefrigeratorManagementAppApplication.java
- com.rm.app.refrigerator_management_app.RefrigeratorManagementAppApplication
 com/rm/app/refrigerator_management_app/web/HelloController.java
  com.rm.app.refrigerator_management_app.web.HelloController
+com/rm/app/refrigerator_management_app/domain/memo/MemoRepository.java
+ com.rm.app.refrigerator_management_app.domain.memo.MemoRepository
+com/rm/app/refrigerator_management_app/web/dto/MemoUpdateRequestDto.java
+ com.rm.app.refrigerator_management_app.web.dto.MemoUpdateRequestDto
+ com.rm.app.refrigerator_management_app.web.dto.MemoUpdateRequestDto$MemoUpdateRequestDtoBuilder
+com/rm/app/refrigerator_management_app/domain/memo/Memo.java
+ com.rm.app.refrigerator_management_app.domain.memo.Memo
+ com.rm.app.refrigerator_management_app.domain.memo.Memo$MemoBuilder
+com/rm/app/refrigerator_management_app/web/MemoApiController.java
+ com.rm.app.refrigerator_management_app.web.MemoApiController
+com/rm/app/refrigerator_management_app/web/dto/MemoSaveRequestDto.java
+ com.rm.app.refrigerator_management_app.web.dto.MemoSaveRequestDto
+ com.rm.app.refrigerator_management_app.web.dto.MemoSaveRequestDto$MemoSaveRequestDtoBuilder
+com/rm/app/refrigerator_management_app/domain/BaseTimeEntity.java
+ com.rm.app.refrigerator_management_app.domain.BaseTimeEntity
+com/rm/app/refrigerator_management_app/RefrigeratorManagementAppApplication.java
+ com.rm.app.refrigerator_management_app.RefrigeratorManagementAppApplication
+com/rm/app/refrigerator_management_app/service/memo/MemoService.java
+ com.rm.app.refrigerator_management_app.service.memo.MemoService
+com/rm/app/refrigerator_management_app/web/dto/MemoResponseDto.java
+ com.rm.app.refrigerator_management_app.web.dto.MemoResponseDto
