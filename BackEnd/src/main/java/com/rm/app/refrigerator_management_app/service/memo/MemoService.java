@@ -2,13 +2,16 @@ package com.rm.app.refrigerator_management_app.service.memo;
 
 import com.rm.app.refrigerator_management_app.domain.memo.Memo;
 import com.rm.app.refrigerator_management_app.domain.memo.MemoRepository;
+import com.rm.app.refrigerator_management_app.web.dto.MemoListResponseDto;
 import com.rm.app.refrigerator_management_app.web.dto.MemoResponseDto;
 import com.rm.app.refrigerator_management_app.web.dto.MemoSaveRequestDto;
 import com.rm.app.refrigerator_management_app.web.dto.MemoUpdateRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import javax.transaction.Transactional;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 @Service
@@ -30,6 +33,13 @@ public class MemoService {
         // 따라서 update쿼리를 날릴 필요가 없다.
 
         return id;
+    }
+
+    @Transactional(readOnly = true)
+    public List<MemoListResponseDto> findAllDesc() {
+        return memoRepository.findAllDesc().stream()
+                .map(MemoListResponseDto::new)
+                .collect(Collectors.toList());
     }
 
     public MemoResponseDto findById(Long id) { // db 데이터를 변경하지 않으므로 Transactional 어노테이션을 사용하지 않음
