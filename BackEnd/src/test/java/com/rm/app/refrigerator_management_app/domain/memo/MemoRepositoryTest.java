@@ -28,18 +28,21 @@ public class MemoRepositoryTest {
     @Test
     public void 메모_불러오기() {
         // given
+        String title = "테스트 게시글";
         String content = "테스트 메모";
 
         memoRepository.save(Memo.builder() // id값(기본키)이 있다면 update, 없다면 insert 쿼리가 실행된다.
-        .content(content)
-        .author("soosungp33@gmail.com")
-        .build());
+                .title(title)
+                .content(content)
+                .author("soosungp33@gmail.com")
+                .build());
 
         // when
         List<Memo> memoList = memoRepository.findAll(); // 테이블에 있는 모든 데이터를 조회
 
         // then
         Memo memo = memoList.get(0); // 1개만 넣었으므로 첫 번째만 가져옴
+        assertThat(memo.getTitle()).isEqualTo(title);
         assertThat(memo.getContent()).isEqualTo(content);
     }
 
@@ -48,9 +51,10 @@ public class MemoRepositoryTest {
         //given
         LocalDateTime now = LocalDateTime.of(2019, 6, 4, 0, 0, 0);
         memoRepository.save(Memo.builder()
-        .content("content")
-        .author("author")
-        .build());
+                .title("title")
+                .content("content")
+                .author("author")
+                .build());
 
         //when
         List<Memo> memoList = memoRepository.findAll();

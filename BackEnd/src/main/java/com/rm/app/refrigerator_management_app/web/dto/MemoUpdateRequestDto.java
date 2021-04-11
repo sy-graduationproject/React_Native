@@ -7,10 +7,12 @@ import lombok.NoArgsConstructor;
 @Getter
 @NoArgsConstructor
 public class MemoUpdateRequestDto {
-    private String Content;
+    private String title;
+    private String content;
 
     @Builder
-    public MemoUpdateRequestDto(String content) { // 테스트할 때 쓰는 듯?
-        this.Content = content;
+    public MemoUpdateRequestDto(String title, String content) { // 테스트할 때 쓰는 듯?
+        this.title = title;
+        this.content = content;
     }
 }

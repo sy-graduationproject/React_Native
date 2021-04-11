@@ -13,18 +13,24 @@ public class MemoApiController {
 
     private final MemoService memoService;
 
-    @PostMapping("/api/memo")
+    @PostMapping("/api/v1/memo")
     public Long save(@RequestBody MemoSaveRequestDto requestDto) {
         return memoService.save(requestDto);
     }
 
-    @PutMapping("/api/memo/{id}")
+    @PutMapping("/api/v1/memo/{id}")
     public Long update(@PathVariable Long id, @RequestBody MemoUpdateRequestDto requestDto) {
         return memoService.update(id, requestDto);
     }
 
-    @GetMapping("/api/memo/{id}")
+    @GetMapping("/api/v1/memo/{id}")
     public MemoResponseDto findById (@PathVariable Long id) {
         return memoService.findById(id);
+    }
+
+    @DeleteMapping("/api/v1/memo/{id}")
+    public Long delete(@PathVariable Long id) {
+        memoService.delete(id);
+        return id;
     }
 }

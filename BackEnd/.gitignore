@@ -1,3 +1,7 @@
 .idea
 .gradle
 application-oauth.properties
+
+IndexController
+IndexControllerTest
+index.mustache
