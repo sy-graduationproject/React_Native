@@ -1,8 +1,0 @@
-com/rm/app/refrigerator_management_app/web/HelloControllerTest.java
- com.rm.app.refrigerator_management_app.web.HelloControllerTest
-com/rm/app/refrigerator_management_app/RefrigeratorManagementAppApplicationTests.java
- com.rm.app.refrigerator_management_app.RefrigeratorManagementAppApplicationTests
-com/rm/app/refrigerator_management_app/web/MemoApiControllerTest.java
- com.rm.app.refrigerator_management_app.web.MemoApiControllerTest
-com/rm/app/refrigerator_management_app/domain/memo/MemoRepositoryTest.java
- com.rm.app.refrigerator_management_app.domain.memo.MemoRepositoryTest
