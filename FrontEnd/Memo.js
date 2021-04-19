@@ -1,21 +1,39 @@
-import React, { useState }from 'react';
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { StyleSheet, Text, TouchableOpacity, View, FlatList, TextInput } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import List from './List'
 
 export default function Memo() {
-    const [checked, setChecked] = useState(true);
-    
+    const [message, setMessage] = useState([]);
+    useEffect(() => {
+        fetch("http://localhost:8080/api/memo")
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (myJson) {
+                setMessage(myJson);
+                console.log(JSON.stringify(myJson));
+            })
+    }, [])
+
+    const DeleteButton1 = () => {
+        return (
+            <TouchableOpacity
+                activeOpacity={0.7}>
+                <Iconicons name="ios-trash" size={24} color="black" />
+            </TouchableOpacity>
+        )
+    }
     return (
-        <View style={styles.container}>
-            <View style={styles.header}>
-                <Text style={{fontSize:30}}> Memo</Text>
-            </View>
-            <View style={styles.memo}>
-                <TouchableOpacity
-                    activeOpacity={0.7}
-                    style={checked ? styles.checked : styles.unchecked}>
-                    <Ionicons name="ios-checkmark" size={30} color='#FFFFF' />
-                </TouchableOpacity>
+        <View >
+            <View style={styles.Header}>
+                <Text style={{
+                    fontSize: 30, marginBottom: 10
+                }}>Memo</Text>
+                <TextInput style={styles.memo}></TextInput>
+                <View>
+                    {message.map((obj) => { return (<List id={obj.id} checked={obj.complete} listText={obj.content} />) })}
+                </View>
             </View>
         </View>
     );
@@ -23,36 +41,29 @@ export default function Memo() {
 
 const styles = StyleSheet.create({
     container: {
-        marginTop: 20,
-        marginBottom: 10,
-        flexDirection: 'column',
-        justifyContent: 'center',
-    },
-    header: {
-        marginBottom: 30,
-        flexDirection:'row',
-        justifyContent:'center',
+        paddingLeft: 16,
+        paddingRight: 16,
+        flexDirection: 'row',
+        alignItems: 'center',
     },
     memo: {
-        marginLeft: 30
+        backgroundColor: '#E5E5E5',
+        width: 350,
+        height: 200,
     },
-    checked: {
-        borderRadius: 14,
-        width: 28,
-        height: 28,
-        justifyContent: 'center',
-        alignItems: 'center',
-        marginRight: 8,
-        backgroundColor: '#3478f6'
+    Header: {
+        marginTop: 26,
+        marginBottom: 16,
+        marginLeft: 16,
     },
-    unchecked: {
-        borderRadius: 14,
-        borderWidth: 1,
-        borderColor: '#E5E5E5',
-        width: 28,
-        height: 28,
-        justifyContent: 'center',
-        alignItems: 'center',
-        marginRight: 8,
-    }
+    listText: {
+        color: '#424242',
+        fontSize: 16,
+        flexDirection: 'row',
+
+    },
+    list: {
+        flexDirection: 'row',
+        padding: 10,
+    },
 });
