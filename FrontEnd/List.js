@@ -2,16 +2,24 @@ import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, TouchableOpacity, View, FlatList, TextInput } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
-const List = ({ checked, listText }) => {
+
+const List = ({ id, listText }) => {
+    const onClick = (id) => {
+        const url = "http://localhost:8080/api/memo/" + id;
+        fetch(url, {
+            method: 'DELETE',
+            headers: {
+                'content-type': 'application/json'
+            }
+        })
+    }
     return (
         <View style={styles.container}>
             <View style={styles.list}>
-                <TouchableOpacity
-                    activeOpacity={0.7}
-                    style={checked ? styles.checked : styles.unchecked}>
-                    <Ionicons name="ios-checkmark" size={30} color='#FFFFFF' />
-                </TouchableOpacity>
                 <Text style={styles.listText}>{listText}</Text>
+                <View style={{width:200, alignContent:'right', alignItems:'flex-end'}}>
+                    <Ionicons name="trash" size={24} color="black" onPress={() => onClick(id)}/>
+                </View>
             </View>
         </View>
     )
