@@ -30,10 +30,12 @@ export default function Memo() {
                 complete:false               
             })
         })
-        message.concat()
         setText('');
         setUpdate((update) => !update);
         memoRef.current.clear();
+    }
+    const Answer = (data) => {
+        setUpdate(data);
     }
     return (
         <View >
@@ -44,15 +46,16 @@ export default function Memo() {
                 <View style={{flexDirection:'row'}}>
                     <TextInput style={styles.memo}
                         ref={memoRef}
-                        onChangeText={(text) => setText(text)}
-                        onKeyPress={(e) => {if(e.key=='Enter') OkButton()}}></TextInput>
+                        multiline={false}
+                        onSubmitEditing={() =>OkButton()}
+                        onChangeText={(text) => setText(text)}></TextInput>
                     <Button title={'OK'}
                         onPress={() => OkButton()}
                 />
                 </View>
 
                 <View>
-                    {message.map((obj) => { return (<List key={obj.id} id={obj.id} checked={obj.complete} listText={obj.content} />) })}
+                    {message.map((obj) => { return (<List key={obj.id} id={obj.id} checked={obj.complete} listText={obj.content} answerFunction={Answer} update={update}/>) })}
                 </View>
             </View>
         </View>
