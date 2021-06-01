@@ -1,5 +1,5 @@
 import React,{useState} from 'react';
-import { StyleSheet, Text, View, Button, TouchableOpacity, Image, ScrollView} from 'react-native';
+import { StyleSheet, Text, View, Button, TouchableOpacity, Image, ScrollView, Modal, Pressable} from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import * as Font from 'expo-font';
 import { useEffect } from 'react';
@@ -15,15 +15,16 @@ const Home = () => {
     const [strawberry, setStrawberry] = useState(true);
     const [blueberry, setBlueberry] = useState(true);
     const [shrimp, setShrimp] = useState(true);
-    const [trout, setTrout] = useState(false);
-    const [kale, setKale] = useState(false);
-    const [macadamia, setMacadamia] = useState(false);
-    const [broccoli, setBroccoli] = useState(false);
-    const [tomatoes, setTomatoes] = useState(false);
-    const [banana, setBanana] = useState(false);
-    const [oat, setOat] = useState(false);
-    const [pepper, setpepper] = useState(false);
-    const [update, setUpdate] = useState(false);
+    const [trout, setTrout] = useState(true);
+    const [kale, setKale] = useState(true);
+    const [macadamia, setMacadamia] = useState(true);
+    const [broccoli, setBroccoli] = useState(true);
+    const [tomatoes, setTomatoes] = useState(true);
+    const [banana, setBanana] = useState(true);
+    const [oat, setOat] = useState(true);
+    const [pepper, setpepper] = useState(true);
+    const [update, setUpdate] = useState(true);
+    const [modalVisible, setModalVisible] = useState(true);
     useEffect(() => {
         fetch("https://de4e0a82449c.ngrok.io/api/memo")
             .then(function (response) {
@@ -49,8 +50,30 @@ const Home = () => {
             <View>
                 <View style={styles.c}>
                     <View style={styles.r}>
+                        <Modal
+                            animationType="slide"
+                            transparent={true}
+                            visible={modalVisible}
+                            onRequestClose={() => {
+                                Alert.alert("Modal has been closed.");
+                                setModalVisible(!modalVisible);
+                            }}
+                        >
+                            <View style={styles.centeredView}>
+                                <View style={styles.modalView}>
+                                    <Text style={styles.modalText}>Hello World!</Text>
+                                    <Pressable
+                                        style={[styles.button, styles.buttonClose]}
+                                        onPress={() => setModalVisible(!modalVisible)}
+                                    >
+                                        <Text style={styles.textStyle}>Hide Modal</Text>
+                                    </Pressable>
+                                </View>
+                            </View>
+                        </Modal>
                         <TouchableOpacity
-                            style={styles.button}
+                                style={styles.button}
+                                onPress={() => setModalVisible(true)}
                         >
                             {
                                 cabbage ?
@@ -357,6 +380,31 @@ const styles = StyleSheet.create({
         flex: 1,
         height: 80,
         width:80,
+    },
+    centeredView: {
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
+        marginTop: 22
+    },
+    modalView: {
+        margin: 20,
+        backgroundColor: "white",
+        borderRadius: 20,
+        padding: 35,
+        alignItems: "center",
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 2
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 4,
+        elevation: 5
+    },
+    modalText: {
+        marginBottom: 15,
+        textAlign: "center"
     }
 });
 
