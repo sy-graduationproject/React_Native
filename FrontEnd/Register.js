@@ -10,13 +10,13 @@ export default function Register({navigation}) {
         <View style={styles.container}>
             <TextInput
                 value={username}
-                onChangeText={(username) => setUsername}
+                onChangeText={(username) => setUsername(username)}
                 placeholder={'Username'}
                 style={styles.input}
             />
             <TextInput
                 value={password}
-                onChangeText={(password) => setPassword}
+                onChangeText={(password) => setPassword(password)}
                 placeholder={'Password'}
                 secureTextEntry={true}
                 style={styles.input}
