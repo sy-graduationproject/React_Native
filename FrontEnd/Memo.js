@@ -9,7 +9,7 @@ export default function Memo() {
     const [update, setUpdate] = useState(false);
     const memoRef = useRef();
     useEffect(() => {
-        fetch("https://8404b858648c.ngrok.io/api/memo")
+        fetch("https://de4e0a82449c.ngrok.io/api/memo")
             .then(function (response) {
                 return response.json();
             })
@@ -20,7 +20,7 @@ export default function Memo() {
     }, [update])
 
     const OkButton = () => {
-        fetch("https://8404b858648c.ngrok.io/api/memo", {
+        fetch("https://de4e0a82449c.ngrok.io/api/memo", {
             method: 'POST',
             headers: {
                 'content-type':'application/json'
