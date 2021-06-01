@@ -17,10 +17,10 @@ export default class Profile extends Component {
                 <View style={styles.body}>
                     <View style={styles.bodyContent}>
                         <TouchableOpacity style={styles.buttonContainer}>
-                            <Text>Opcion 1</Text>
+                            <Text>Option 1</Text>
                         </TouchableOpacity>
                         <TouchableOpacity style={styles.buttonContainer}>
-                            <Text>Opcion 2</Text>
+                            <Text>Option 2</Text>
                         </TouchableOpacity>
                     </View>
                 </View>
@@ -31,7 +31,7 @@ export default class Profile extends Component {
 
 const styles = StyleSheet.create({
     header: {
-        backgroundColor: "tomato",
+        backgroundColor: "skyblue",
         height: 200,
     },
     avatar: {
@@ -83,7 +83,7 @@ const styles = StyleSheet.create({
         marginBottom: 20,
         width: 250,
         borderRadius: 30,
-        backgroundColor: "tomato",
+        backgroundColor: "skyblue",
     },
 });
 

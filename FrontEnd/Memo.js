@@ -9,7 +9,7 @@ export default function Memo() {
     const [update, setUpdate] = useState(false);
     const memoRef = useRef();
     useEffect(() => {
-        fetch("http://localhost:8080/api/memo")
+        fetch("https://8404b858648c.ngrok.io/api/memo")
             .then(function (response) {
                 return response.json();
             })
@@ -20,7 +20,7 @@ export default function Memo() {
     }, [update])
 
     const OkButton = () => {
-        fetch("http://localhost:8080/api/memo", {
+        fetch("https://8404b858648c.ngrok.io/api/memo", {
             method: 'POST',
             headers: {
                 'content-type':'application/json'
@@ -29,10 +29,11 @@ export default function Memo() {
                 content: text,
                 complete:false               
             })
+        }).then(function () {
+            setText('');
+            setUpdate((update) => !update);
+            memoRef.current.clear();
         })
-        setText('');
-        setUpdate((update) => !update);
-        memoRef.current.clear();
     }
     const Answer = (data) => {
         setUpdate(data);
@@ -41,7 +42,7 @@ export default function Memo() {
         <View >
             <View style={styles.Header}>
                 <Text style={{
-                    fontSize: 30, marginBottom: 10
+                    fontSize: 30, marginBottom: 10, color:'skyblue'
                 }}>Memo</Text>
                 <View style={{flexDirection:'row'}}>
                     <TextInput style={styles.memo}

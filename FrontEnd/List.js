@@ -8,14 +8,15 @@ const List = ({ id, listText, answerFunction, update }) => {
     const [edit, setEdit] = useState(false);
     const editing = useRef();
     const onClick = (id) => {
-        const url = "http://localhost:8080/api/memo/" + id;
+        const url = "https://8404b858648c.ngrok.io/api/memo/" + id;
         fetch(url, {
             method: 'DELETE',
             headers: {
                 'content-type': 'application/json'
             }
+        }).then(function () {
+                answerFunction((tag) => !tag);
         })
-        answerFunction((tag) => !tag);
     }
     // const onUpdate = (id) => {
     //     setEdit((edit) => { !edit });
