@@ -5,28 +5,28 @@ import * as Font from 'expo-font';
 import { useEffect } from 'react';
 
 const Home = () => {
-    const [cabbage, setCabbage] = useState(true);
-    const [carrots, setCarrots] = useState(true);
-    const [cucumber, setCucumber] = useState(true);
-    const [egg, setEgg] = useState(true);
-    const [beef, setBeef] = useState(true);
-    const [onion, setOnion] = useState(true);
-    const [orange, setOrange] = useState(true);
-    const [strawberry, setStrawberry] = useState(true);
-    const [blueberry, setBlueberry] = useState(true);
-    const [shrimp, setShrimp] = useState(true);
-    const [trout, setTrout] = useState(true);
-    const [kale, setKale] = useState(true);
-    const [macadamia, setMacadamia] = useState(true);
-    const [broccoli, setBroccoli] = useState(true);
-    const [tomatoes, setTomatoes] = useState(true);
-    const [banana, setBanana] = useState(true);
-    const [oat, setOat] = useState(true);
-    const [pepper, setpepper] = useState(true);
-    const [update, setUpdate] = useState(true);
-    const [modalVisible, setModalVisible] = useState(true);
+    const [cabbage, setCabbage] = useState(false);
+    const [carrots, setCarrots] = useState(false);
+    const [cucumber, setCucumber] = useState(false);
+    const [egg, setEgg] = useState(false);
+    const [beef, setBeef] = useState(false);
+    const [onion, setOnion] = useState(false);
+    const [orange, setOrange] = useState(false);
+    const [strawberry, setStrawberry] = useState(false);
+    const [blueberry, setBlueberry] = useState(false);
+    const [shrimp, setShrimp] = useState(false);
+    const [trout, setTrout] = useState(false);
+    const [kale, setKale] = useState(false);
+    const [macadamia, setMacadamia] = useState(false);
+    const [broccoli, setBroccoli] = useState(false);
+    const [tomatoes, setTomatoes] = useState(false);
+    const [banana, setBanana] = useState(false);
+    const [oat, setOat] = useState(false);
+    const [pepper, setpepper] = useState(false);
+    const [update, setUpdate] = useState(false);
+    const [modalVisible, setModalVisible] = useState(false);
     useEffect(() => {
-        fetch("https://de4e0a82449c.ngrok.io/api/memo")
+        fetch("https://cdfd4e90e071.ngrok.io/api/memo")
             .then(function (response) {
                 return response.json();
             })
