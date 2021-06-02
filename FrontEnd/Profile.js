@@ -1,89 +1,82 @@
-import React, { Component } from 'react';
+import React  from 'react';
 import {
     StyleSheet,
     Text,
     View,
-    Image,
-    TouchableOpacity
+    TouchableOpacity,
+    Image
 } from 'react-native';
+import { Ionicons, Entypo  } from '@expo/vector-icons';
 
-export default class Profile extends Component {
-
-    render() {
-        return (
-            <View style={styles.container}>
-                <View style={styles.header}></View>
-                <Image style={styles.avatar} source={{ uri: 'https://bootdey.com/img/Content/avatar/avatar6.png' }} />
-                <View style={styles.body}>
-                    <View style={styles.bodyContent}>
-                        <TouchableOpacity style={styles.buttonContainer}>
-                            <Text>Option 1</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity style={styles.buttonContainer}>
-                            <Text>Option 2</Text>
-                        </TouchableOpacity>
-                    </View>
-                </View>
+const Profile =()=> {
+    return (
+        <View style={styles.c}>
+            <View style={styles.r}>
+                <TouchableOpacity
+                    style={styles.button}>
+                    <Ionicons name="man" size={30} color="black" />
+                    <Text>Sang</Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                    style={styles.button}>
+                </TouchableOpacity>
+                <TouchableOpacity
+                    style={styles.button}>
+                        <Ionicons name="man-outline" size={30} color="black" />
+                    <Text>Young</Text>
+                </TouchableOpacity>
             </View>
-        );
-    }
+            <View style={styles.r}>
+                <TouchableOpacity
+                    style={styles.button}>
+                <Entypo name="text-document" size={24} color="black" />
+                    <Text>Doc</Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                    style={styles.button}>
+                </TouchableOpacity>
+                <TouchableOpacity
+                    style={styles.button}>
+                        <Ionicons name="man-outline" size={30} color="black" />
+                    <Text>Young</Text>
+                </TouchableOpacity>
+            </View>
+            <View style={styles.r}>
+                <TouchableOpacity
+                    style={styles.button}>
+                <Entypo name="text-document" size={24} color="black" />
+                    <Text>Doc</Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                    style={styles.button}>
+                </TouchableOpacity>
+                <TouchableOpacity
+                    style={styles.button}>
+                        <Ionicons name="man-outline" size={30} color="black" />
+                    <Text>Young</Text>
+                </TouchableOpacity>
+            </View>
+        </View>
+    );
 }
 
 const styles = StyleSheet.create({
-    header: {
-        backgroundColor: "skyblue",
-        height: 200,
-    },
-    avatar: {
-        width: 130,
-        height: 130,
-        borderRadius: 63,
-        borderWidth: 4,
-        borderColor: "white",
-        marginBottom: 30,
-        alignSelf: 'center',
-        position: 'absolute',
-        marginTop: 130
-    },
-    name: {
-        fontSize: 22,
-        color: "#FFFFFF",
-        fontWeight: '600',
-    },
-    body: {
-        marginTop: 40,
-    },
-    bodyContent: {
+    button: {
+        height: 180,
+        width: 100,
+         backgroundColor: 'skyblue',
+        borderColor:'skyblue',
+        margin: 20,
         flex: 1,
-        alignItems: 'center',
-        padding: 30,
+        alignContent: 'center',
+        alignItems:'center',
     },
-    name: {
-        fontSize: 28,
-        color: "#696969",
-        fontWeight: "600"
-    },
-    info: {
-        fontSize: 16,
-        color: "#00BFFF",
-        marginTop: 10
-    },
-    description: {
-        fontSize: 16,
-        color: "#696969",
-        marginTop: 10,
-        textAlign: 'center'
-    },
-    buttonContainer: {
-        marginTop: 20,
-        height: 45,
+    r: {
         flexDirection: 'row',
-        justifyContent: 'center',
-        alignItems: 'center',
-        marginBottom: 20,
-        width: 250,
-        borderRadius: 30,
-        backgroundColor: "skyblue",
+    },
+    c: {
+        flexDirection: 'column',
     },
 });
 
+export default Profile;
