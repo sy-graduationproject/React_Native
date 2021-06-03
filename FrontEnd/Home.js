@@ -12,7 +12,7 @@ const Home = () => {
     const [count, setCount] = useState(0);
 
     const getMaterial = async () => {
-        await fetch("https://151f5a1e8372.ngrok.io/ml")
+        await fetch("https://e9553528b648.ngrok.io/ml")
             .then(function (response) {
                 return response.json();
             })

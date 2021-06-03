@@ -8,6 +8,7 @@ import Navigation from './Navigation'
 import Login from './Login';
 import Register from './Register';
 import Recipe from './Recipe';
+import QnA from './QnA';
 
 const Stack = createStackNavigator();
 
@@ -19,6 +20,7 @@ export default function App() {
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="Register" component={Register} />
         <Stack.Screen name="Navigation" component={Navigation} />
+        <Stack.Screen name="QnA" component={QnA}/>
       </Stack.Navigator>
     </NavigationContainer>
   );

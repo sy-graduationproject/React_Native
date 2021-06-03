@@ -3,10 +3,10 @@ import React, { Component } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { NavigationContainer, StackActions } from '@react-navigation/native';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
-import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { MaterialCommunityIcons, Ionicons } from '@expo/vector-icons';
 import Home from './Home';
 import Memo from './Memo';
-import Profile from './Profile';
+import Settings from './Settings';
 
 const Tab = createMaterialBottomTabNavigator();
 
@@ -39,12 +39,12 @@ function MyTabs() {
                 }}
             />
             <Tab.Screen
-                name="Profile"
-                component={Profile}
+                name="Settings"
+                component={Settings}
                 options={{
-                    tabBarLabel: 'Profile',
+                    tabBarLabel: 'Settings',
                     tabBarIcon: ({ color }) => (
-                        <MaterialCommunityIcons name="account" color={color} size={26} />
+                        <Ionicons name="settings" size={26} color={color} />
                     ),
                 }}
             />

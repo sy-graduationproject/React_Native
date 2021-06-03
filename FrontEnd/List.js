@@ -8,7 +8,7 @@ const List = ({ id, listText, answerFunction, update }) => {
     const [edit, setEdit] = useState(false);
     const editing = useRef();
     const onClick = (id) => {
-        const url = "https://77aab304d7ea.ngrok.io/api/memo/" + id;
+        const url = "https://e9553528b648.ngrok.io/api/memo/" + id;
         fetch(url, {
             method: 'DELETE',
             headers: {
