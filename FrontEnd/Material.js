@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, Text, View, Button, TouchableOpacity, Image, ScrollView, Modal, Pressable } from 'react-native';
+import { StyleSheet, Text, View, Button, TouchableOpacity, Image, ScrollView, Modal, Pressable, Linking } from 'react-native';
 import { useEffect, useState } from 'react';
 import { Ionicons } from '@expo/vector-icons';
 
@@ -36,7 +36,7 @@ const Material = ({ data }) => {
     }
 
     useEffect(() => {
-         fetch("https://20032755e883.ngrok.io/ml")
+        fetch("https://77aab304d7ea.ngrok.io/ml")
             .then(function (response) {
                 return response.json();
             })
@@ -50,7 +50,7 @@ const Material = ({ data }) => {
     }, [update]);
 
     const onRecipe = (id) => {
-        fetch("https://20032755e883.ngrok.io/api/recipe/" + id)
+        fetch("https://77aab304d7ea.ngrok.io/api/recipe/" + id)
             .then(function (response) {
                 return response.json();
             })
@@ -82,22 +82,24 @@ const Material = ({ data }) => {
                         >
                             <View style={styles.centeredView}>
                                 <View style={styles.modalView}>
-                                    <Text style={styles.modalText}>{food}</Text>
+                                    <Text style={styles.modalText, {fontSize:30, marginBottom:20,}}>{food}</Text>
                                     <Text style={styles.modalText}>{material}</Text>
-                                    <Text style={styles.modalText}>{seq}</Text>
-                                    <Text style={styles.modalText}>{link}</Text>
+                                    <Text style={styles.modalText, {textAlign:'left'}}>{seq}</Text>
+                                    <Text style={{ color: 'blue' }}
+                                        onPress={() => Linking.openURL(link)}>
+                                            더 많은 레시피를 살펴보려면?</Text>
                                     <Pressable
-                                        style={[styles.button, styles.buttonClose]}
+                                        style={{marginTop:50 ,backgroundColor:'skyblue',}}
                                         onPress={() => setModalVisible(!modalVisible)}
                                     >
-                                        <Text style={styles.textStyle}>Hide Modal</Text>
+                                        <Text style={{color:'white', padding:10}}>Close</Text>
                                     </Pressable>
                                 </View>
                             </View>
                         </Modal>
                         <TouchableOpacity
                             style={styles.button}
-                            onPress={() => onRecipe(1)}
+                            onPress={() => cabbage ? onRecipe(1) : null}
                         >
                             {
                                 cabbage ?
@@ -113,6 +115,7 @@ const Material = ({ data }) => {
                         </TouchableOpacity>
                         <TouchableOpacity
                             style={styles.button}
+                            onPress={() => onion ? onRecipe(2) : null}
                         >
                             {
                                 onion ?
@@ -126,8 +129,10 @@ const Material = ({ data }) => {
                                     </>
                             }
                         </TouchableOpacity>
+                        
                         <TouchableOpacity
                             style={styles.button}
+                            onPress={() => orange ? onRecipe(5) : null}
                         >
                             {
                                 orange ?
@@ -145,6 +150,7 @@ const Material = ({ data }) => {
                     <View style={styles.r}>
                         <TouchableOpacity
                             style={styles.button}
+                            onPress={() => egg ? onRecipe(4) : null}
                         >
                             {
                                 egg ?
@@ -160,6 +166,7 @@ const Material = ({ data }) => {
                         </TouchableOpacity>
                         <TouchableOpacity
                             style={styles.button}
+                            onPress={() => cucumber? onRecipe(3) : null}
                         >
                             {
                                 cucumber ?
@@ -412,6 +419,8 @@ const styles = StyleSheet.create({
         marginTop: 22
     },
     modalView: {
+        width: 400,
+        height:400,
         margin: 20,
         backgroundColor: "white",
         borderRadius: 20,
