@@ -1,13 +1,22 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { StyleSheet, Text, View, FlatList, TouchableOpacity, Image, ScrollView, Modal, Pressable } from 'react-native';
 
-const QnaList = ({name, question, answer}) => {
+const QnaList = ({ name, question, answer }) => {
+    const [A, seta] = useState(answer);
+    useEffect(() => {
+        if (A == "")
+            seta("...")
+    },[])
     return (
-        <View style ={styles.item}>
-            <Text style={styles.title}>{question}</Text>
-            <Text style={styles.answer}>{answer}</Text>
-            <Text >{name}</Text>
-        </View>
+        <ScrollView>
+            <View style={styles.item}>
+                <Text style={styles.title}>Q : {question}</Text>
+                <Text style={styles.answer}>A : {A}</Text>
+                <View style={{ alignItems: 'flex-end' }}>
+                    <Text>{name}</Text>
+                </View>
+            </View>
+        </ScrollView>
     )
 }
 
@@ -19,10 +28,13 @@ const styles = StyleSheet.create({
         marginHorizontal: 16,
     },
     title: {
-        fontSize: 29,
+        fontSize: 20,
+        marginBottom: 5,
+        color:'white'
     },
     answer: {
-        
+        fontSize: 20,
+        color: 'white'
     }
 })
 
