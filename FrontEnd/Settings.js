@@ -10,6 +10,7 @@ import {
 import { Ionicons, Entypo, MaterialIcons, AntDesign } from '@expo/vector-icons';
 import Login from './Login'
 import QnA from './QnA';
+import Doc from './Doc';
 
 const Profile =({navigation})=> {
     return (
@@ -34,7 +35,8 @@ const Profile =({navigation})=> {
             </View>
             <View style={styles.r}>
                 <TouchableOpacity
-                    style={styles.button}>
+                    style={styles.button}
+                    onPress={()=> navigation.navigate(Doc)}>
                 <Entypo name="text-document" size={24} color="black" />
                     <Text>Doc</Text>
                 </TouchableOpacity>
