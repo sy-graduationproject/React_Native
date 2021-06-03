@@ -1,10 +1,13 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { StyleSheet, Text, View, Button, TouchableOpacity, Image, ScrollView, Modal, Pressable } from 'react-native';
+import { StyleSheet, Text, View, FlatList, TouchableOpacity, Image, ScrollView, Modal, Pressable } from 'react-native';
 import QnaList from './QnaList';
 
 
 const QnA = () => {
     const [qna, setQna] = useState([]);
+    const renderItem = ({item}) => (
+        <QnaList name={item.name} question={item.question} answer={item.answer} />
+    );
     useEffect(() => {
         fetch("https://8dab085c8fc4.ngrok.io/api/qna")
             .then(function (response) {
@@ -19,10 +22,15 @@ const QnA = () => {
             <View style={styles.TContainer}>
                 <Text style={styles.Title}>QnA</Text>
             </View>
-            {qna.map((obj) => { return (<QnaList key={obj.id} name = { obj.name } question={obj.question} answer={obj.answer}/> )})}
+            <FlatList
+                data={qna}
+                renderItem={renderItem}
+                keyExtractor={item => item.id}
+            />
         </View>
     )
 }
+//{qna.map((obj) => { return (<QnaList key={obj.id} obj={obj}name = { obj.name } question={obj.question} answer={obj.answer}/> )})}
 
 
 const styles = StyleSheet.create({
