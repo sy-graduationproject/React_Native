@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, Text, View, Button, TouchableOpacity, Image, ScrollView, Modal, Pressable } from 'react-native';
+import { StyleSheet, Text, View, Button, TouchableOpacity, Image, ScrollView, Modal, Pressable, Linking } from 'react-native';
 import { useEffect, useState } from 'react';
 import { Ionicons } from '@expo/vector-icons';
 
@@ -43,6 +43,7 @@ const Material = ({ data }) => {
 
     useEffect(() => {
          fetch("https://151f5a1e8372.ngrok.io/ml")
+
             .then(function (response) {
                 return response.json();
             })
@@ -67,6 +68,7 @@ const Material = ({ data }) => {
 
     const onRecipe = (id) => {
         fetch("https://151f5a1e8372.ngrok.io/api/recipe/" + id)
+
             .then(function (response) {
                 return response.json();
             })
@@ -462,6 +464,8 @@ const styles = StyleSheet.create({
         marginTop: 22
     },
     modalView: {
+        width: 400,
+        height:400,
         margin: 20,
         backgroundColor: "white",
         borderRadius: 20,
