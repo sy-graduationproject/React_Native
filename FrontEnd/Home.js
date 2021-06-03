@@ -10,7 +10,7 @@ const Home = () => {
     const [file, setFile] = useState([]);
 
     const getMaterial = async () => {
-        await fetch("https://77aab304d7ea.ngrok.io/ml")
+        await fetch("https://e9553528b648.ngrok.io/ml")
             .then(function (response) {
                 return response.json();
             })

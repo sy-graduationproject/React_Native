@@ -36,7 +36,7 @@ const Material = ({ data }) => {
     }
 
     useEffect(() => {
-        fetch("https://77aab304d7ea.ngrok.io/ml")
+        fetch("https://e9553528b648.ngrok.io/ml")
             .then(function (response) {
                 return response.json();
             })
@@ -50,7 +50,7 @@ const Material = ({ data }) => {
     }, [update]);
 
     const onRecipe = (id) => {
-        fetch("https://77aab304d7ea.ngrok.io/api/recipe/" + id)
+        fetch("https://e9553528b648.ngrok.io/api/recipe/" + id)
             .then(function (response) {
                 return response.json();
             })
