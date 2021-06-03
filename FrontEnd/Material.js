@@ -130,10 +130,10 @@ const Material = ({ data }) => {
                             style={styles.button}
                         >
                             {
-                                cucumber ?
+                                orange ?
                                     <>
-                                        <Image source={require('./assets/cucumber.png')} resizeMode='contain' style={styles.image} />
-                                        <Text >cucumber</Text>
+                                        <Image source={require('./assets/orange.png')} resizeMode='contain' style={styles.image} />
+                                        <Text >orange</Text>
                                     </>
                                     :
                                     <>
@@ -162,10 +162,10 @@ const Material = ({ data }) => {
                             style={styles.button}
                         >
                             {
-                                beef ?
+                                cucumber ?
                                     <>
-                                        <Image source={require('./assets/beef.png')} resizeMode='contain' style={styles.image} />
-                                        <Text >beef</Text>
+                                        <Image source={require('./assets/cucumber.png')} resizeMode='contain' style={styles.image} />
+                                        <Text >cucumber</Text>
                                     </>
                                     :
                                     <>
@@ -194,10 +194,10 @@ const Material = ({ data }) => {
                             style={styles.button}
                         >
                             {
-                                orange ?
+                                beef ?
                                     <>
-                                        <Image source={require('./assets/orange.png')} resizeMode='contain' style={styles.image} />
-                                        <Text >orange</Text>
+                                        <Image source={require('./assets/beef.png')} resizeMode='contain' style={styles.image} />
+                                        <Text >beef</Text>
                                     </>
                                     :
                                     <>
