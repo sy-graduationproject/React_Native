@@ -8,6 +8,8 @@ const Home = () => {
 
     const [isLoading, setIsLoading] = useState(true);
     const [file, setFile] = useState([]);
+    const [load, setLoad] = useState(false);
+    const [count, setCount] = useState(0);
 
     const getMaterial = async () => {
         await fetch("https://e9553528b648.ngrok.io/ml")
@@ -16,19 +18,41 @@ const Home = () => {
             })
             .then(function (myJson) {
                 setFile(myJson);
+                setCount(50);
                 setIsLoading(false);
             })
     }
+
     useEffect(() => {
         getMaterial();
-    }, []);
+    }, [])
 
-    const onRecipe = () => {
-        
-    }
+    useEffect(() => {
+        if(count>=50) return;
+        const t = setTimeout(() => setCount(count+1), 1500);
+        setLoad(!load);
+
+        return () => clearTimeout(t);
+    }, [count]);
+
     return (
         isLoading ?
-            <Loading/>
+            <View>
+                <View style={styles.LoadingView}>
+                {
+                    load ?
+                        <>
+                            <Image source={require('./assets/refrigerator1.png')} resizeMode='contain' style={styles.image} />
+                            <Text style={styles.text}>Loading.</Text>
+                        </>
+                        :
+                        <>
+                            <Image source={require('./assets/refrigerator2.png')} resizeMode='contain' style={styles.image} />
+                            <Text style={styles.text}>Loading..</Text>
+                        </>
+                }
+                </View>
+            </View>
             :
             <Material data={file}/>
         
@@ -54,15 +78,19 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
     },
     image: {
-        flex: 1,
-        height: 80,
-        width:80,
+        height: 200,
+        width: 200,
     },
-    centeredView: {
-        flex: 1,
+    LoadingView: {
+        // flex: 1,
         justifyContent: "center",
         alignItems: "center",
-        marginTop: 22
+        marginTop:250
+    },
+    text: {
+        fontSize : 26,
+        marginTop: 20,
+        textAlign: "center"
     },
     modalView: {
         margin: 20,
