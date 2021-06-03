@@ -2,7 +2,6 @@ import React,{useState, useEffect, useRef} from 'react';
 import { StyleSheet, Text, View, Button, TouchableOpacity, Image, ScrollView, Modal, Pressable} from 'react-native';
 import * as Font from 'expo-font';
 import Material from './Material';
-import Loading from './Loading';
 
 const Home = () => {
 
